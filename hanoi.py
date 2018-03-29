@@ -1,19 +1,16 @@
-NR_OF_DISCS = 8
-
-stokje = [[],[],[],[]]
-
-i = 1
-while i <= NR_OF_DISCS:
-    stokje[1].append(i)
-    stokje[2].append(0)
-    stokje[3].append(0)
-    i = i + 1
+def getNumberOfDiscsFromUser():
+    inputDiscs = input("AANTAL SCHIJVEN: ")
+    try:
+        d = int(inputDiscs)
+    except:
+        print("Type een getal van 1 t/m 8!")
+        return -1
+    if d in (1,2,3,4,5,6,7,8):  
+        return d
+    else:
+        print("Type een getal van 1 t/m 8!")
+        return -1
     
-##        
-##stokje[1] = [1,2,3,4,5,6,7,8]
-##stokje[2] = [0,0,0,0,0,0,0,0]
-##stokje[3] = [0,0,0,0,0,0,0,0]
-
 def getSchijf (s):
     if s == 0:
         schijf = '|'
@@ -21,7 +18,6 @@ def getSchijf (s):
         schijf = '_' * (s+s-1)
 
     return schijf
-
 
 def draw():
     i = 0
@@ -57,6 +53,30 @@ def isLegalToMove(f,t):
             return False
     return True
 
+
+NR_OF_DISCS = -1
+while NR_OF_DISCS == -1:
+    NR_OF_DISCS = getNumberOfDiscsFromUser()
+
+
+
+
+    
+##    print("Te veel schijven! Max. 8")
+##    NR_OF_DISCS = int (input("AANTAL SCHIJVEN: "))
+
+    
+
+        
+stokje = [[],[],[],[]]
+
+i = 1
+while i <= NR_OF_DISCS:
+    stokje[1].append(i)
+    stokje[2].append(0)
+    stokje[3].append(0)
+    i = i + 1
+    
 
 error = ""
 while True:
