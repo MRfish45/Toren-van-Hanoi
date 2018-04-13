@@ -53,6 +53,10 @@ def isLegalToMove(f,t):
             return False
     return True
 
+def isGameEnded():
+    if (stokje[3][0] != 0):
+        return True
+    return False
 
 NR_OF_DISCS = -1
 while NR_OF_DISCS == -1:
@@ -79,7 +83,8 @@ while i <= NR_OF_DISCS:
     
 
 error = ""
-while True:
+nr_of_moves = 0
+while not isGameEnded():
     draw()
     if (error != ""):
         print(error)
@@ -114,5 +119,11 @@ while True:
             stokje[v][from_schijf] = 0
 
             error = ""
-            
+            nr_of_moves += 1
 
+# game ended
+draw()
+print("-"*22)
+print("Congratulations, you have solved the Towers of Hanoi puzzle!")
+print("For a tower size of {}, the minimal amount of moves to solve is {}. You needed {} moves".format(NR_OF_DISCS, 2**NR_OF_DISCS-1, nr_of_moves))
+print("-"*22)
