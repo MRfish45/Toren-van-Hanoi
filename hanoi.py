@@ -29,7 +29,6 @@ def draw():
         i = i + 1
 
 def isLegalInput(van, naar):
-    print("{}  {}".format(van,naar))
     if van in ('1','2','3') and naar in ('1','2','3'):
         return True
     return False
